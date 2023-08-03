@@ -3,7 +3,7 @@ html{
     font-family: "Bona Nova", Arial;
 }
 body{
-    background-image: "https://github.com/zyaakov6/gmara/blob/main/background.jpeg";
+    background-image: url("https://github.com/zyaakov6/gmara/blob/main/background.jpeg");
     width: auto;
 }
 h1, h2{
