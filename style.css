@@ -3,8 +3,9 @@ html{
     font-family: "Bona Nova", Arial;
 }
 body{
-    background-image: "background.jpg";
+    background-image: url("https://img.freepik.com/free-vector/yellow-parchment_53876-91513.jpg?w=1060&t=st=1691095593~exp=1691096193~hmac=14ebef74e0fd7073c1473d8803439382d1372d7d1ff5d941be3dc705bf35ad6e");
     width: auto;
+    min-height: 100vh;
 }
 h1, h2{
     text-align: center;
@@ -42,6 +43,16 @@ a:hover{
     text-decoration: underline;
     color: #000099;
 }
+footer{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+footer p{
+    margin-top: auto;
+    padding-bottom: 2%;
+    padding-right: 2%;
+}
 @media (min-width: 600px){
     .container{
         display: flex;
@@ -51,11 +62,7 @@ a:hover{
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    footer{
-        display: block;
-        padding: 5%;
-        background-color: rgba(#fff,#fff, #fff, 0.6);
-    }
+    
     .container > a{
         flex-basis: 1.5cm;
     }
@@ -74,11 +81,5 @@ a:hover{
         border-bottom: 0.04cm black solid;
         padding: 5%;
     }
-    footer{
-        display: block;
-        clear: both;
-        padding: 5%;
-        background-color: rgba(#fff,#fff, #fff, 0.6);
-        bottom: 5%;
-    }
+    
 }
