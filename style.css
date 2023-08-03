@@ -1,0 +1,84 @@
+html{
+    direction: rtl;
+    font-family: "Bona Nova", Arial;
+}
+body{
+    background-image: url("../background.jpeg");
+    width: auto;
+}
+h1, h2{
+    text-align: center;
+}
+h4{
+    margin-right: 4%;
+    display: block;
+}
+.navbar{
+    background-color: transparent;
+}
+hr{
+    color: black;
+    border: 0.5px solid black;
+    width: 93%;
+    display: block;
+}
+#mini-hr{
+    width: 70%;
+}
+.container{
+    border: 0;
+    padding: 1%;
+    display: flex;
+    /* background-color: aqua; */
+    box-shadow: 1px 1px 25px ;
+    gap: 10px;
+}
+a{
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover{
+    text-decoration: underline;
+    color: #000099;
+}
+@media (min-width: 600px){
+    .container{
+        display: flex;
+        flex-direction: row;
+        padding: 2% 0;
+        gap: 2%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    footer{
+        display: block;
+        padding: 5%;
+        background-color: rgba(#fff,#fff, #fff, 0.6);
+    }
+    .container > a{
+        flex-basis: 1.5cm;
+    }
+}
+@media (max-width: 600px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:10%;
+        width: 50%;
+        align-content: center;
+    }
+    .container > a{
+        flex-basis: 0.6cm;
+        border-bottom: 0.04cm black solid;
+        padding: 5%;
+    }
+    footer{
+        display: block;
+        clear: both;
+        padding: 5%;
+        background-color: rgba(#fff,#fff, #fff, 0.6);
+        bottom: 5%;
+    }
+}
