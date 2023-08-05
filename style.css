@@ -1,12 +1,14 @@
 html{
     direction: rtl;
-    font-family: "Bona Nova", Arial;
+    font-family: "Fredoka";
     height: 100%;
 }
 body{
     background-image: url("https://img.freepik.com/free-vector/yellow-parchment_53876-91513.jpg?w=1060&t=st=1691095593~exp=1691096193~hmac=14ebef74e0fd7073c1473d8803439382d1372d7d1ff5d941be3dc705bf35ad6e");
     width: auto;
     min-height: 100vh;
+    font-family: "Fredoka";
+    /* font-family: "Libre Baskerville"; */
     max-height: 100%;
 }
 h1, h2{
@@ -33,7 +35,7 @@ hr{
     padding: 1%;
     display: flex;
     /* background-color: aqua; */
-    box-shadow: 1px 1px 25px ;
+    /* box-shadow: 1px 1px 25px ; */
     gap: 10px;
 }
 a{
@@ -42,14 +44,14 @@ a{
     display: inline-block;
 }
 a:hover{
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: #000099;
 }
 .dropdown-item, .dropdown-menu, .form-control, .dropdown-item:hover,
 .form-control:focus{
     background-color: #e4b980;
 }
-footer{
+/* footer{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -58,7 +60,7 @@ footer p{
     margin-top: auto;
     padding-bottom: 2%;
     padding-right: 2%;
-}
+} */
 @media (min-width: 600px){
     .container{
         display: flex;
