@@ -1,78 +1,106 @@
-html{
+html {
     direction: rtl;
     font-family: "Fredoka";
     height: 100%;
+    overflow-x: hidden;
+    /* max-width: 100%; */
 }
-body{
-    background-image: url("https://img.freepik.com/free-vector/yellow-parchment_53876-91513.jpg?w=1060&t=st=1691095593~exp=1691096193~hmac=14ebef74e0fd7073c1473d8803439382d1372d7d1ff5d941be3dc705bf35ad6e");
-    width: auto;
-    min-height: 100vh;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, #f8ecc2 0%, #e0cda8 20%, #d1b28f 40%, #bfa07a 60%, #d1b28f 80%, #f8ecc2 100%); /* Enhanced gradient to mimic old scroll colors */
+    background-size: 100% 400px; /* Adjust the height to control the repetition size */
+    background-repeat: repeat-y; /* Repeat the background vertically */
     font-family: "Fredoka", "Libre Baskerville";
-    max-height: 100%;
+    min-height: 100vh;
 }
-h1, h2{
+
+
+
+
+
+.scroll-container {     
+    margin: 20px;
+    padding: 20px;
+    background: rgba(245, 222, 179, 0.9); /* Semi-transparent parchment color */
+    border: 1px solid #a0522d; /* Darker brown border to mimic scroll edges */
+    border-radius: 15px; /* Rounded corners for scroll effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for a slightly raised effect */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto; /* Center the container */
+    text-align: justify;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        background-attachment: scroll; /* Change to scroll for better performance on mobile */
+    }
+}
+
+h1, h2 {
     text-align: center;
 }
-h4{
+
+h4 {
     margin-right: 4%;
     display: block;
 }
-.navbar{
-    position:relative;    
-    background-color: rgba(128, 34, 34, 0.34) !important; 
+
+.navbar {
+    position: relative;
+    background-color: rgba(128, 34, 34, 0.34) !important;
     backdrop-filter: blur(10px);
     border-bottom-right-radius: 25%;
     border-bottom-left-radius: 25%;
-
 }
-h1{
+
+h1 {
     border-top-right-radius: 100%;
 }
-#brand{
+
+#brand {
     font-size: xx-large;
 }
-hr{
+
+hr {
     color: black;
     border: 0.5px solid black;
     width: 93%;
     display: block;
 }
-#mini-hr{
+
+#mini-hr {
     width: 70%;
 }
-.container{
+
+.container {
     border: 0;
     padding: 1%;
     display: flex;
-    /* background-color: aqua; */
-    /* box-shadow: 1px 1px 25px ; */
     gap: 10px;
 }
-a{
+
+a {
     color: black;
     text-decoration: none;
     display: inline-block;
 }
-a:hover{
-    /* text-decoration: underline; */
+
+a:hover {
     color: #000099;
 }
-.dropdown-item, .dropdown-menu, .form-control, .dropdown-item:hover,
-.form-control:focus{
+
+.dropdown-item, .dropdown-menu, .form-control, .dropdown-item:hover, .form-control:focus {
     background-color: #e4b980;
 }
-/* footer{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-footer p{
-    margin-top: auto;
-    padding-bottom: 2%;
-    padding-right: 2%;
-} */
-@media (min-width: 600px){
-    .container{
+
+@media (min-width: 600px) {
+    .container {
         display: flex;
         flex-direction: row;
         padding: 2% 0;
@@ -80,32 +108,35 @@ footer p{
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
-    
-    .container > a{
+
+    .container > a {
         flex-basis: 1.5cm;
     }
 }
-@media (max-width: 600px){
-    .container{
+
+@media (max-width: 600px) {
+    .container {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        gap:10%;
+        gap: 10%;
         width: 50%;
         align-content: center;
     }
-    .container > a{
+
+    .container > a {
         flex-basis: 0.6cm;
         border-bottom: 0.04cm black solid;
         padding: 5%;
     }
-    
 }
-#col-6{
+
+#col-6 {
     text-align: center;
     justify-content: center;
 }
-.row li{
+
+.row li {
     background-color: rgba(66, 64, 64, 0.25) !important;
     margin: 5px;
     border: 2px black ridge;

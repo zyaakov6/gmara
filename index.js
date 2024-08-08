@@ -32,5 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    $(function() {
+        var availableTags = [
+            "סדר זרעים",
+            "סדר מועד",
+            "סדר נשים",
+            "סדר נזיקין",
+            "סדר קדשים",
+            "סדר טהרות"
+        ];
+    
+        $("input[type='search']").autocomplete({
+            source: availableTags
+        });
+    });
+    
 
 });

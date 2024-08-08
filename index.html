@@ -13,66 +13,174 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Libre+Baskerville&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+      /* Container for the autocomplete suggestions */
+      .ui-autocomplete {
+          max-height: 200px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          font-family: 'Fredoka', sans-serif;
+          font-size: 14px;
+          background-color: rgba(228, 185, 128, 0.9);
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          z-index: 1050;
+      }
+  
+      /* Individual suggestion item */
+      .ui-menu-item {
+          padding: 5px 10px;
+          cursor: pointer;
+      }
+  
+      /* Focused/Highlighted suggestion item */
+      .ui-menu-item.ui-state-focus,
+      .ui-menu-item.ui-state-active {
+          background-color: #e4b980 !important; /* Change this to your desired color */
+          color: #333 !important; /* Change this to your desired text color */
+      }
+  
+      /* Wrapper around the text of each suggestion */
+      .ui-menu-item-wrapper {
+          display: block;
+          padding: 5px 10px;
+          color: #000;
+          text-decoration: none;
+      }
+  
+      /* Customize additional states if needed */
+      .ui-state-hover {
+          background-color: #e4b980 !important; /* Change this to your desired hover color */
+          color: #333 !important; /* Change this to your desired text color */
+      }
+  </style>
+  
     <title>כולל הכהנים והעם</title>
 </head>
-<body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<body class="scroll-container">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-                  <a class="navbar-brand" id="brand" href="/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="45" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
-                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-                  </svg> &emsp;   כולל הכהנים והעם </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          סדרים
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="zraim.html">סדר זרעים</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="moed.html">סדר מועד</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="nashim.html">סדר נשים</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="nezikin.html">סדר נזיקין</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="kodashim.html">סדר קדשים</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="taharot.html">סדר טהרות</a></li>
-                        </ul>
-                      </li>
-                      
-                    </ul>
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success rounded-pill" type="submit">Search</button>
-                    </form>
-                  </div>
-                </div>
-              </nav>
-    </header>
-    <h4>שיעורי הרב <span id="harav">אייל אלימלך</span></h4>
-    </div>
-        <hr>
-        <div class="px-4 py-5 my-5 text-center">
-            <h1 class="display-5 fw-bold text-body-emphasis">כולל הכהנים והעם</h1>
-            <div class="col-lg-6 mx-auto">
-              <p class="lead mb-4">כולל קהילת יש"י במזכרת בתיה, שיעורי דף היומי בהעברת הרב אייל אלימלך. </p>
-              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a href="nezikin/baba-batra-mg.mp3"> לדף של היום </a></button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="nezikin/baba-batra.html"> למסכת של היום</a></button>
-              </div>
-            </div>
+          <a class="navbar-brand" id="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="45" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+            <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+          </svg> &emsp;    כולל הכהנים והעם </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  סדרים
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../zraim.html">סדר זרעים</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../moed.html">סדר מועד</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../nashim.html">סדר נשים</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../nezikin.html">סדר נזיקין</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../kodashim.html">סדר קדשים</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../taharot.html">סדר טהרות</a></li>
+                </ul>
+              </li>
+              
+            </ul>
+            <form class="d-flex" role="search" id="search-form">
+              <input class="form-control me-2 rounded-pill" type="search" placeholder="חיפוש" aria-label="Search" id="search-input">
+              <button class="btn btn-outline-success rounded-pill" type="submit">חיפוש</button>
+            </form>
           </div>
+        </div>
+      </nav>
+  </header>
+    <h4>שיעורי הרב <span id="harav">אייל אלימלך</span></h4>
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">כולל הכהנים והעם</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">כולל קהילת יש"י במזכרת בתיה, שיעורי דף היומי בהעברת הרב אייל אלימלך. </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a href="nezikin/audio/baba-batra-md.mp3" target="_blank"> לדף של היום </a></button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="nezikin/baba-batra.html"> למסכת של היום</a></button>
+          </div>
+        </div>
+      </div>
     <footer>
-        <p>ביקורת ? הערות ? משהו חשוב להגיד ? שתף.. </p>
+        <p>ביקורת ? הערות ? משהו חשוב להגיד ? שתף.. &emsp; <a href="https://wa.me/+972535556146" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+        </svg></a></p>
       </br>
     </footer>
-    <script src="index.js"></script>
-
+    <script>
+      $(function() {
+          var availableTags = [
+              "סדר זרעים",
+              "סדר מועד",
+              "סדר נשים",
+              "סדר נזיקין",
+              "סדר קדשים",
+              "סדר טהרות"
+          ];
+  
+          $("#search-input").autocomplete({
+              source: availableTags,
+              autoFocus: true,
+              delay: 0,
+              minLength: 0,
+              focus: function(event, ui) {
+                  return false; // Prevent value from being updated on focus
+              },
+              select: function(event, ui) {
+                  $("#search-input").val(ui.item.value);
+                  $("#search-form").submit();
+                  return false;
+              }
+          });
+  
+          $("#search-form").on("submit", function(event) {
+              event.preventDefault();
+              var searchTerm = $("#search-input").val();
+  
+              // Define your redirection logic here
+              if (searchTerm === "סדר זרעים") {
+                  window.location.href = "zraim.html";
+              } else if (searchTerm === "סדר מועד") {
+                  window.location.href = "moed.html";
+              } else if (searchTerm === "סדר נשים") {
+                  window.location.href = "nashim.html";
+              } else if (searchTerm === "סדר נזיקין") {
+                  window.location.href = "nezikin.html";
+              } else if (searchTerm === "סדר קדשים") {
+                  window.location.href = "kodashim.html";
+              } else if (searchTerm === "סדר טהרות") {
+                  window.location.href = "taharot.html";
+              } else {
+                  alert("No matching page found for: " + searchTerm);
+              }
+          });
+  
+          $("input[type='search']").keypress(function(event) {
+              if (event.which == 13) {
+                  event.preventDefault();
+                  var active = $(".ui-menu-item-wrapper.ui-state-active");
+                  if (active.length) {
+                      active.trigger("click");
+                  } else {
+                      $("#search-form").submit();
+                  }
+              }
+          });
+      });
+  </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
